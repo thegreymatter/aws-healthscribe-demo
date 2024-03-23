@@ -35,13 +35,31 @@ import styles from './NewConversation.module.css';
 import { verifyJobParams } from './formUtils';
 import { AudioDetails, AudioSelection } from './types';
 
+function generateFilename(): string {
+    const now = new Date();
+
+    const year = now.getFullYear();
+    // Get month and add leading zero if needed
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    // Get day and add leading zero if needed
+    const day = now.getDate().toString().padStart(2, '0');
+    // Get hours and add leading zero if needed
+    const hours = now.getHours().toString().padStart(2, '0');
+    // Get minutes and add leading zero if needed
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+
+    const filename = `session-${year}-${month}-${day}-${hours}-${minutes}`;
+    return filename;
+}
+
+
 export default function NewConversation() {
     const { updateProgressBar } = useNotificationsContext();
     const navigate = useNavigate();
 
     const [isSubmitting, setIsSubmitting] = useState<boolean>(false); // is job submitting
     const [formError, setFormError] = useState<string | JSX.Element[]>('');
-    const [jobName, setJobName] = useState<string>(''); // form - job name
+    const [jobName, setJobName] = useState<string>(generateFilename()); // form - job name
     const [audioSelection, setAudioSelection] = useState<AudioSelection>('speakerPartitioning'); // form - audio selection
     // form - audio details
     const [audioDetails, setAudioDetails] = useState<AudioDetails>({
@@ -221,21 +239,13 @@ export default function NewConversation() {
         <ContentLayout
             header={
                 <Header
-                    description="Upload your audio file to be processed by AWS HealthScribe"
+                    description="Upload your audio file to be processed by  HealthScribe"
                     variant="awsui-h1-sticky"
                 >
                     New Conversation
                 </Header>
             }
         >
-            <Container
-                header={
-                    <Header
-                        variant="h3"
-                        description="Note: AWS HealthScribe offers additional features not built into this demo, such as Custom Vocabulary, Content Removal, and more. This is available via the AWS console, API, or SDK."
-                    />
-                }
-            >
                 <form onSubmit={(e) => submitJob(e)}>
                     <Form
                         errorText={formError}
@@ -255,7 +265,8 @@ export default function NewConversation() {
                     >
                         <SpaceBetween direction="vertical" size="xl">
                             <InputName jobName={jobName} setJobName={setJobName} />
-                            <AudioIdentificationType
+                         {/*    <AudioIdentificationType
+
                                 audioSelection={audioSelection}
                                 setAudioSelection={setAudioSelection}
                             />
@@ -263,24 +274,11 @@ export default function NewConversation() {
                                 audioSelection={audioSelection}
                                 audioDetails={audioDetails}
                                 setAudioDetails={setAudioDetails}
-                            />
+                            /> */}
                             <FormField
                                 label={
                                     <SpaceBetween direction="horizontal" size="xs">
                                         <div>Session Recording Type</div>
-                                        <Box
-                                            display="inline-block"
-                                            color="text-status-info"
-                                            fontSize="body-s"
-                                            fontWeight="bold"
-                                        >
-                                            <Popover
-                                                header="Live Recording"
-                                                content="The audio file will be submitted to AWS HealthScribe after the recording is complete. Please position your device or microphone so it can capture all conversation participants."
-                                            >
-                                                <StatusIndicator type="info">New</StatusIndicator>
-                                            </Popover>
-                                        </Box>
                                     </SpaceBetween>
                                 }
                             >
