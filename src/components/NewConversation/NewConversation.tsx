@@ -266,7 +266,7 @@ export default function NewConversation() {
                     >
                         <SpaceBetween direction="vertical" size="xl">
                             <InputName jobName={jobName} setJobName={setJobName} />
-                            <AudioIdentificationType
+                         {/*    <AudioIdentificationType
 
                                 audioSelection={audioSelection}
                                 setAudioSelection={setAudioSelection}
@@ -275,7 +275,7 @@ export default function NewConversation() {
                                 audioSelection={audioSelection}
                                 audioDetails={audioDetails}
                                 setAudioDetails={setAudioDetails}
-                            />
+                            /> */}
                             <FormField
                                 label={
                                     <SpaceBetween direction="horizontal" size="xs">
