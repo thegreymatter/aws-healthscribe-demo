@@ -52,7 +52,6 @@ function generateFilename(): string {
     return filename;
 }
 
-
 export default function NewConversation() {
     const { updateProgressBar } = useNotificationsContext();
     const navigate = useNavigate();
@@ -238,10 +237,7 @@ export default function NewConversation() {
     return (
         <ContentLayout
             header={
-                <Header
-                    description="Upload your audio file to be processed by  HealthScribe"
-                    variant="awsui-h1-sticky"
-                >
+                <Header description="Upload your audio file to be processed by  HealthScribe" variant="awsui-h1-sticky">
                     New Conversation
                 </Header>
             }
@@ -266,7 +262,7 @@ export default function NewConversation() {
                     >
                         <SpaceBetween direction="vertical" size="xl">
                             <InputName jobName={jobName} setJobName={setJobName} />
-                         {/*    <AudioIdentificationType
+                            {/*    <AudioIdentificationType
 
                                 audioSelection={audioSelection}
                                 setAudioSelection={setAudioSelection}

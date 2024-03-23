@@ -20,21 +20,14 @@ function Welcome() {
 
     function Content() {
         if (user) {
-            return (
-                <TextContent>
-                    demo app
-                </TextContent>
-            );
+            return <TextContent>demo app</TextContent>;
         } else {
             return <Alert>Log in for full functionality.</Alert>;
         }
     }
 
     function Footer() {
-        return (
-            <Box textAlign="center" color="text-body-secondary" fontSize="body-s">
-            </Box>
-        );
+        return <Box textAlign="center" color="text-body-secondary" fontSize="body-s"></Box>;
     }
 
     return (

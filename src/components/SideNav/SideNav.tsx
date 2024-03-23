@@ -25,7 +25,7 @@ export default function SideNav({ activeHref }: SideNavProps) {
             text: 'Conversations',
             href: '/conversations',
         },
-        { type: 'divider' }
+        { type: 'divider' },
     ];
 
     return (
