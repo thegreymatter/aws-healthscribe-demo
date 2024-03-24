@@ -204,7 +204,7 @@ export default function NewConversation() {
                         .unix(startJob.data.MedicalScribeJob.StartTime)
                         .format('MM/DD/YYYY hh:mm A')}. Redirecting to conversation list in 5 seconds.`,
                 });
-                await sleep(5000);
+                await sleep(500);
                 navigate('/conversations');
             } else {
                 updateProgressBar({
