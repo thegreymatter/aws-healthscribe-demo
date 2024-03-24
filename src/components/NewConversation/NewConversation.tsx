@@ -254,7 +254,7 @@ export default function NewConversation() {
                                     </Button>
                                 ) : (
                                     <Button formAction="submit" variant="primary" disabled={!filePath}>
-                                        Submit
+                                        Transcribe Session
                                     </Button>
                                 )}
                             </SpaceBetween>

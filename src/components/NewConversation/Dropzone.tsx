@@ -64,8 +64,6 @@ export const AudioDropzone = memo(function AudioDropzone({ setFilePath, setFormE
             >
                 <input {...getInputProps()} />
                 <p>Drag n drop an audio file here, or click to select an audio file.</p>
-                <p>Only one audio file will be accepted.</p>
-                <em>Valid formats: MP3, MP4, WAV, FLAC, AMR, OGG, and WebM</em>
             </div>
         </div>
     );
