@@ -24,7 +24,7 @@ export default function TopNav() {
     const { appTheme, setAppTheme } = useAppThemeContext();
 
     const [authVisible, setAuthVisible] = useState(false); // authentication modal visibility
-    const [density, setDensity] = useState('density.comfortable'); // app density
+    const [density, setDensity] = useState('density.compact'); // app density
 
     // Set appTheme
     useEffect(() => {

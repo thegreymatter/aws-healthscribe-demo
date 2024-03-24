@@ -31,7 +31,7 @@ function Welcome() {
     }
 
     return (
-        <ContentLayout header={<Header variant="h2">Demo Scribe Application powered by AWS</Header>}>
+        <ContentLayout header={<Header variant="h2">Demo Scribe Application</Header>}>
             <Container footer={<Footer />}>
                 <Content />
             </Container>

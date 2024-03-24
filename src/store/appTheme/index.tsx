@@ -8,7 +8,7 @@ type AppThemeContextType = {
 };
 
 export const AppThemeContext = createContext<AppThemeContextType>({
-    appTheme: 'theme.light',
+    appTheme: 'theme.dark',
     setAppTheme: () => {},
 });
 
