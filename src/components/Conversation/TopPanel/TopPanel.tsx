@@ -213,16 +213,7 @@ export default function TopPanel({
         }
 
         return (
-            <Header
-                variant="h3"
-                actions={
-                    <SpaceBetween direction="horizontal" size="xs">
-                        <Button variant="primary" onClick={() => navigate('/conversations')}>
-                            Exit Conversation
-                        </Button>
-                    </SpaceBetween>
-                }
-            >
+            <Header variant="h3">
                 {jobDetails?.MedicalScribeJobName}
             </Header>
         );
@@ -285,18 +276,20 @@ export default function TopPanel({
                         }}
                     />
                 </div>
-                <AudioControls
-                    wavesurfer={wavesurfer}
-                    audioLoading={audioLoading}
-                    showControls={showControls}
-                    setShowControls={setShowControls}
-                    playingAudio={playingAudio}
-                    setPlayingAudio={setPlayingAudio}
-                    playBackSpeed={playBackSpeed}
-                    setPlayBackSpeed={setPlayBackSpeed}
-                    isEmbeded={true}
-                />
-                <SegmentControls />
+                <div>
+                    <AudioControls
+                        wavesurfer={wavesurfer}
+                        audioLoading={audioLoading}
+                        showControls={showControls}
+                        setShowControls={setShowControls}
+                        playingAudio={playingAudio}
+                        setPlayingAudio={setPlayingAudio}
+                        playBackSpeed={playBackSpeed}
+                        setPlayBackSpeed={setPlayBackSpeed}
+                        isEmbeded={true}
+                    />
+                    <SegmentControls />
+                </div>
             </Container>
         </>
     );
