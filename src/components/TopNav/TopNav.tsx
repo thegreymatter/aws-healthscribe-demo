@@ -70,52 +70,6 @@ export default function TopNav() {
         }
     }
 
-    const utilVisual: TopNavigationProps.MenuDropdownUtility = {
-        type: 'menu-dropdown',
-        iconName: 'settings',
-        ariaLabel: 'Settings',
-        title: 'Settings',
-        items: [
-            {
-                id: 'theme',
-                text: 'Theme',
-                items: [
-                    {
-                        id: 'theme.light',
-                        text: 'Light',
-                        disabled: appTheme === 'theme.light',
-                        disabledReason: 'Currently selected',
-                    },
-                    {
-                        id: 'theme.dark',
-                        text: 'Dark',
-                        disabled: appTheme === 'theme.dark',
-                        disabledReason: 'Currently selected',
-                    },
-                ],
-            },
-            {
-                id: 'density',
-                text: 'Density',
-                items: [
-                    {
-                        id: 'density.comfortable',
-                        text: 'Comfortable',
-                        disabled: density === 'density.comfortable',
-                        disabledReason: 'Currently selected',
-                    },
-                    {
-                        id: 'density.compact',
-                        text: 'Compact',
-                        disabled: density === 'density.compact',
-                        disabledReason: 'Currently selected',
-                    },
-                ],
-            },
-        ],
-        onItemClick: (e) => handleUtilVisualClick(e),
-    };
-
     const utilUser: TopNavigationProps.ButtonUtility | TopNavigationProps.MenuDropdownUtility =
         user && isUserEmailVerified(user)
             ? {
@@ -132,7 +86,7 @@ export default function TopNav() {
                   onClick: () => setAuthVisible(true),
               };
 
-    const navUtils = [utilVisual, utilUser];
+    const navUtils = [utilUser];
 
     return (
         <>

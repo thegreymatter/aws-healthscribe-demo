@@ -75,13 +75,7 @@ export default function Auth({ visible, setVisible }: AuthParams) {
     };
 
     const colorMode = useMemo(() => {
-        if (appTheme === 'theme.light') {
-            return 'light';
-        } else if (appTheme === 'theme.dark') {
-            return 'dark';
-        } else {
-            return 'system';
-        }
+        return 'light';
     }, [appTheme]);
 
     return (
