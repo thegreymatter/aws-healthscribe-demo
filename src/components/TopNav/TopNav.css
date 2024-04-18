@@ -1,5 +1,7 @@
 #appTopNav {
     /* https://cloudscape.design/components/top-navigation/?tabId=api */
+    background-color: white;
+    color: blueviolet;
     position: sticky;
     top: 0;
     z-index: 1999;

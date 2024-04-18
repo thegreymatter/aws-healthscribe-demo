@@ -8,7 +8,7 @@ import Button from '@cloudscape-design/components/button';
 import Modal from '@cloudscape-design/components/modal';
 import SpaceBetween from '@cloudscape-design/components/space-between';
 
-import { Authenticator, ThemeProvider, defaultDarkModeOverride } from '@aws-amplify/ui-react';
+import { Authenticator, ColorMode, ThemeProvider, defaultDarkModeOverride } from '@aws-amplify/ui-react';
 import '@aws-amplify/ui-react/styles.css';
 
 import { useAppThemeContext } from '@/store/appTheme';
@@ -74,7 +74,7 @@ export default function Auth({ visible, setVisible }: AuthParams) {
         },
     };
 
-    const colorMode = useMemo(() => {
+    const colorMode: ColorMode = useMemo(() => {
         return 'light';
     }, [appTheme]);
 
