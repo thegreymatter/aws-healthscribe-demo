@@ -235,13 +235,7 @@ export default function NewConversation() {
     }, [recordedAudio]);
 
     return (
-        <ContentLayout
-            header={
-                <Header description="Upload your audio file to be processed by  HealthScribe" variant="awsui-h1-sticky">
-                    New Conversation
-                </Header>
-            }
-        >
+        <ContentLayout header={<Header variant="awsui-h1-sticky">Transcribe New Conversation</Header>}>
             <Container>
                 <form onSubmit={(e) => submitJob(e)}>
                     <Form
@@ -293,10 +287,7 @@ export default function NewConversation() {
                                     </div>
                                     {submissionMode === 'liveRecording' ? (
                                         <>
-                                            <FormField
-                                                label="Live Recording"
-                                                description="Note: You may only record one live recording at a time."
-                                            ></FormField>
+                                            <FormField label="Live Recording"></FormField>
                                             <AudioRecorder setRecordedAudio={setRecordedAudio} />
                                         </>
                                     ) : (

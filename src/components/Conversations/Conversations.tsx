@@ -149,7 +149,6 @@ export default function Conversations() {
                     }}
                 />
             }
-            preferences={<TablePreferences preferences={preferences} setPreferences={setPreferences} />}
             resizableColumns={true}
             selectedItems={selectedHealthScribeJob}
             selectionType="single"

@@ -217,17 +217,6 @@ export default function TopPanel({
                 variant="h3"
                 actions={
                     <SpaceBetween direction="horizontal" size="xs">
-                        <ButtonDropdown
-                            items={[
-                                { text: 'Audio', id: 'audio' },
-                                { text: 'Transcript', id: 'transcript' },
-                                { text: 'Summary', id: 'summary' },
-                            ]}
-                            onItemClick={({ detail }) => openUrl(detail)}
-                        >
-                            Download
-                        </ButtonDropdown>
-                        <Button onClick={() => setViewResultsModal(true)}>View Output JSON</Button>
                         <Button variant="primary" onClick={() => navigate('/conversations')}>
                             Exit Conversation
                         </Button>
