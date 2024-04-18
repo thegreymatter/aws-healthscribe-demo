@@ -37,7 +37,7 @@ export default function AudioControls({
     setPlayingAudio,
     playBackSpeed,
     setPlayBackSpeed,
-    isEmbeded = false,
+    isEmbeded = true,
     audioBlob = null,
 }: AudioControlsProps) {
     const audioUrl = audioBlob ? URL.createObjectURL(audioBlob) : null;
@@ -111,7 +111,28 @@ export default function AudioControls({
     );
     if (audioLoading) return;
     if (showControls) {
-        return <div className={styles.playerControlInline}>{buttons}</div>;
+        return isEmbeded ? (
+            <div className={styles.playerControlInline}>{buttons}</div>
+        ) : (
+            <div className={styles.playerControl}>
+                <Container>
+                    <div className={styles.closeButton}>
+                        <Button
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setShowControls(false);
+                            }}
+                            variant="icon"
+                            iconName="close"
+                        />
+                    </div>
+                    <div className={styles.ctrlHeading}>
+                        <Box variant="h4">Audio Controls</Box>
+                    </div>
+                    {buttons}
+                </Container>
+            </div>
+        );
     } else {
         return (
             <div className={styles.playerControl}>

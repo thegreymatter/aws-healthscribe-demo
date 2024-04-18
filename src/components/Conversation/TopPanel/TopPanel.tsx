@@ -253,7 +253,7 @@ export default function TopPanel({
                     <Box>
                         <SpaceBetween size={'s'} direction="horizontal">
                             <div className={styles.alignment}>
-                                <Box variant="awsui-key-label">Remove</Box>
+                                <Box variant="awsui-key-label"></Box>
                             </div>
                             <div className={styles.alignment}>
                                 <Checkbox checked={smallTalkCheck} onChange={() => setSmallTalkCheck(!smallTalkCheck)}>
@@ -274,19 +274,8 @@ export default function TopPanel({
 
     return (
         <>
-            <AudioControls
-                wavesurfer={wavesurfer}
-                audioLoading={audioLoading}
-                showControls={showControls}
-                setShowControls={setShowControls}
-                playingAudio={playingAudio}
-                setPlayingAudio={setPlayingAudio}
-                playBackSpeed={playBackSpeed}
-                setPlayBackSpeed={setPlayBackSpeed}
-            />
             <Container header={<AudioHeader />}>
                 {(jobLoading || audioLoading) && <Loading />}
-                <SegmentControls />
                 <div style={{ height: audioLoading ? 0 : '' }}>
                     <div
                         id="waveform"
@@ -296,6 +285,18 @@ export default function TopPanel({
                         }}
                     />
                 </div>
+                <AudioControls
+                    wavesurfer={wavesurfer}
+                    audioLoading={audioLoading}
+                    showControls={showControls}
+                    setShowControls={setShowControls}
+                    playingAudio={playingAudio}
+                    setPlayingAudio={setPlayingAudio}
+                    playBackSpeed={playBackSpeed}
+                    setPlayBackSpeed={setPlayBackSpeed}
+                    isEmbeded={true}
+                />
+                <SegmentControls />
             </Container>
         </>
     );
