@@ -212,11 +212,7 @@ export default function TopPanel({
             }
         }
 
-        return (
-            <Header variant="h3">
-                {jobDetails?.MedicalScribeJobName}
-            </Header>
-        );
+        return <Header variant="h3">{jobDetails?.MedicalScribeJobName}</Header>;
     }
 
     function Loading() {

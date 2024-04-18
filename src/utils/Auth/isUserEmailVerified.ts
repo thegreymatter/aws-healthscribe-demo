@@ -7,5 +7,5 @@ import { AmplifyUser } from '@aws-amplify/ui';
  * @returns {boolean}
  */
 export function isUserEmailVerified(user: false | AmplifyUser): boolean {
-    return !!(user && user?.attributes?.email_verified);
+    return !!user;
 }
