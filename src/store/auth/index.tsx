@@ -37,7 +37,10 @@ export default function AuthContextProvider({ children }: { children: React.Reac
             try {
                 const credentials = await Auth.currentCredentials();
                 setCredentails(credentials);
+                console.log(credentials);
             } catch {
+                console.log("eeerr");
+                console.log(credentials);
                 setCredentails(false);
             }
         }
