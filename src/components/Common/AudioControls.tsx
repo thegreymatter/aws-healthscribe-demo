@@ -111,28 +111,7 @@ export default function AudioControls({
     );
     if (audioLoading) return;
     if (showControls) {
-        return isEmbeded ? (
-            <div className={styles.playerControlInline}>{buttons}</div>
-        ) : (
-            <div className={styles.playerControl}>
-                <Container>
-                    <div className={styles.closeButton}>
-                        <Button
-                            onClick={(e) => {
-                                e.preventDefault();
-                                setShowControls(false);
-                            }}
-                            variant="icon"
-                            iconName="close"
-                        />
-                    </div>
-                    <div className={styles.ctrlHeading}>
-                        <Box variant="h4">Audio Controls</Box>
-                    </div>
-                    {buttons}
-                </Container>
-            </div>
-        );
+        return <div className={styles.playerControlInline}>{buttons}</div>;
     } else {
         return (
             <div className={styles.playerControl}>
