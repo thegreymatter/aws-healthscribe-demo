@@ -64,8 +64,8 @@ export default function App() {
             </div>
             <AppLayout
                 disableContentPaddings={true}
-                breadcrumbs={<Breadcrumbs />}
                 toolsHide={true}
+                navigationHide={true}
                 notifications={<Flashbar items={flashbarItems} />}
                 content={<div style={{ padding: '0px 20px 0px 20px' }}>{content}</div>}
                 headerSelector="#appTopNav"

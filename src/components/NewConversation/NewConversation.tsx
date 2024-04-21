@@ -270,9 +270,9 @@ export default function NewConversation() {
                         }
                     >
                         <SpaceBetween direction="vertical" size="xl">
-                            <InputName jobName={jobName} setJobName={setJobName} />
+
                             {/*  
-                           
+                              <InputName jobName={jobName} setJobName={setJobName} />
                               <AudioIdentificationType
 
                                 audioSelection={audioSelection}
