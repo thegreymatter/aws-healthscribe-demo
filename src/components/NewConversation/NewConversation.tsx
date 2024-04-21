@@ -20,14 +20,13 @@ import TokenGroup from '@cloudscape-design/components/token-group';
 
 import { Progress } from '@aws-sdk/lib-storage';
 import dayjs from 'dayjs';
+import { v4 as uuidv4 } from 'uuid';
 
 import { useS3 } from '@/hooks/useS3';
 import { useNotificationsContext } from '@/store/notifications';
 import { getHealthScribeJob, startMedicalScribeJob } from '@/utils/HealthScribeApi';
 import { multipartUpload } from '@/utils/S3Api';
 import sleep from '@/utils/sleep';
-import { v4 as uuidv4 } from 'uuid';
-
 
 import amplifyCustom from '../../aws-custom.json';
 import AudioRecorder from './AudioRecorder';
@@ -263,7 +262,6 @@ export default function NewConversation() {
                         }
                     >
                         <SpaceBetween direction="vertical" size="xl">
-                            
                             {/*  
                             <InputName jobName={jobName} setJobName={setJobName} />
                               <AudioIdentificationType
