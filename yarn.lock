@@ -5178,6 +5178,11 @@
 "@types/stack-utils@^2.0.0":
   version "2.0.3"
 
+"@types/uuid@^9.0.8":
+  version "9.0.8"
+  resolved "https://registry.npmjs.org/@types/uuid/-/uuid-9.0.8.tgz"
+  integrity sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==
+
 "@types/uuid4@^2.0.3":
   version "2.0.3"
   resolved "https://registry.npmjs.org/@types/uuid4/-/uuid4-2.0.3.tgz"
