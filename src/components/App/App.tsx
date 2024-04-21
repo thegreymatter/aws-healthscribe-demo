@@ -18,6 +18,7 @@ import Welcome from '@/components/Welcome';
 import { useAuthContext } from '@/store/auth';
 import { useNotificationsContext } from '@/store/notifications';
 import { isUserEmailVerified } from '@/utils/Auth/isUserEmailVerified';
+import { Theme, applyTheme } from '@cloudscape-design/components/theming';
 
 Amplify.configure(awsExports);
 
@@ -29,9 +30,22 @@ const Conversation = lazy(() => import('@/components/Conversation'));
 const NewConversation = lazy(() => import('@/components/NewConversation'));
 const GenerateAudio = lazy(() => import('@/components/GenerateAudio'));
 
+const theme: Theme = {
+    tokens: {
+        // Values are applied globally, except for visual contexts
+        colorBackgroundLayoutMain: {
+            // Specify value for light and dark mode
+            light: 'white',
+            dark: 'blue',
+        },
+    },
+};
+
+
 export default function App() {
     const { user } = useAuthContext();
     const { flashbarItems } = useNotificationsContext();
+    applyTheme({ theme });
 
     const content = (
         <Suspense fallback={<SuspenseLoader />}>
