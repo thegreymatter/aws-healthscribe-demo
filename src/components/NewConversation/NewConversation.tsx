@@ -26,6 +26,8 @@ import { useNotificationsContext } from '@/store/notifications';
 import { getHealthScribeJob, startMedicalScribeJob } from '@/utils/HealthScribeApi';
 import { multipartUpload } from '@/utils/S3Api';
 import sleep from '@/utils/sleep';
+import { v4 as uuidv4 } from 'uuid';
+
 
 import amplifyCustom from '../../aws-custom.json';
 import AudioRecorder from './AudioRecorder';
@@ -48,7 +50,7 @@ function generateFilename(): string {
     // Get minutes and add leading zero if needed
     const minutes = now.getMinutes().toString().padStart(2, '0');
 
-    const filename = `session-${year}-${month}-${day}-${hours}-${minutes}`;
+    const filename = `session-${year}-${month}-${day}-${hours}-${minutes}+${uuidv4()}`;
     return filename;
 }
 
@@ -261,8 +263,10 @@ export default function NewConversation() {
                         }
                     >
                         <SpaceBetween direction="vertical" size="xl">
+                            
+                            {/*  
                             <InputName jobName={jobName} setJobName={setJobName} />
-                            {/*    <AudioIdentificationType
+                              <AudioIdentificationType
 
                                 audioSelection={audioSelection}
                                 setAudioSelection={setAudioSelection}
@@ -286,8 +290,8 @@ export default function NewConversation() {
                                             onChange={({ detail }) => setSubmissionMode(detail.value)}
                                             value={submissionMode}
                                             items={[
-                                                { value: 'uploadRecording', label: 'Upload Recording' },
                                                 { value: 'liveRecording', label: 'Live Recording' },
+                                                { value: 'uploadRecording', label: 'Upload Recording File' },
                                             ]}
                                         />
                                     </div>
