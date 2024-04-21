@@ -27,7 +27,6 @@ const NewConversation = lazy(() => import('@/components/NewConversation'));
 
 const theme: Theme = {
     tokens: {
-        
         // Values are applied globally, except for visual contexts
         colorBackgroundLayoutMain: {
             // Specify value for light and dark mode
