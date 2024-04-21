@@ -35,6 +35,11 @@ const theme: Theme = {
         },
         colorTextAccent: 'pink',
     },
+    contexts: {
+        header: {
+            colorBackgroundLayoutMain: '#6941c6 ',
+        },
+    },
 };
 
 applyTheme({ theme });
