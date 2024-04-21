@@ -37,7 +37,9 @@ const theme: Theme = {
     },
     contexts: {
         header: {
-            colorBackgroundLayoutMain: '#6941c6 ',
+            tokens: {
+                colorBackgroundLayoutMain: '#6941c6 ',
+            },
         },
     },
 };
