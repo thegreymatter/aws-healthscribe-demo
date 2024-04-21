@@ -33,7 +33,7 @@ const theme: Theme = {
                 colorBackgroundLayoutMain: '#fafafa ',
             },
         },
-        'top-navigation':{
+        'top-navigation': {
             tokens: {
                 colorBackgroundLayoutMain: '#6941c6 ',
             },
