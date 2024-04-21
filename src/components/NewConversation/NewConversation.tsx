@@ -20,6 +20,7 @@ import TokenGroup from '@cloudscape-design/components/token-group';
 
 import { Progress } from '@aws-sdk/lib-storage';
 import dayjs from 'dayjs';
+import { progress } from 'framer-motion';
 import { v4 as uuidv4 } from 'uuid';
 
 import { useS3 } from '@/hooks/useS3';
@@ -35,7 +36,6 @@ import { AudioDetailSettings, AudioIdentificationType, InputName } from './FormC
 import styles from './NewConversation.module.css';
 import { verifyJobParams } from './formUtils';
 import { AudioDetails, AudioSelection } from './types';
-import { progress } from 'framer-motion';
 
 function generateFilename(): string {
     const filename = `session-${uuidv4()}`;
@@ -208,7 +208,6 @@ export default function NewConversation() {
                         progress = 90;
                     }
                     if (jobstatus === 'COMPLETED') {
-
                         updateProgressBar({
                             id: `New HealthScribe Job: ${jobName}`,
                             value: 100,
