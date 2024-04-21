@@ -35,21 +35,10 @@ import { AudioDetailSettings, AudioIdentificationType, InputName } from './FormC
 import styles from './NewConversation.module.css';
 import { verifyJobParams } from './formUtils';
 import { AudioDetails, AudioSelection } from './types';
+import { progress } from 'framer-motion';
 
 function generateFilename(): string {
-    const now = new Date();
-
-    const year = now.getFullYear();
-    // Get month and add leading zero if needed
-    const month = (now.getMonth() + 1).toString().padStart(2, '0');
-    // Get day and add leading zero if needed
-    const day = now.getDate().toString().padStart(2, '0');
-    // Get hours and add leading zero if needed
-    const hours = now.getHours().toString().padStart(2, '0');
-    // Get minutes and add leading zero if needed
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-
-    const filename = `session-${year}-${month}-${day}-${hours}-${minutes}+${uuidv4()}`;
+    const filename = `session-${uuidv4()}`;
     return filename;
 }
 
@@ -198,18 +187,38 @@ export default function NewConversation() {
             if (startJob?.data?.MedicalScribeJob?.MedicalScribeJobStatus) {
                 updateProgressBar({
                     id: `New HealthScribe Job: ${jobName}`,
-                    type: 'success',
-                    value: 100,
+                    value: 20,
                     description: 'Scribe job submitted',
                     additionalInfo: `Audio file successfully uploaded and submitted to transcription.`,
                 });
+                let progress = 10;
                 // eslint-disable-next-line no-constant-condition
                 while (true) {
                     await sleep(5000);
                     const getJob = await getHealthScribeJob({ MedicalScribeJobName: jobName });
                     const jobstatus = getJob?.data?.MedicalScribeJob?.MedicalScribeJobStatus;
+                    updateProgressBar({
+                        id: `New HealthScribe Job: ${jobName}`,
+                        value: progress,
+                        description: 'Scribe job submitted',
+                        additionalInfo: `Transcribing audio...`,
+                    });
+                    progress += 5;
+                    if (progress >= 90) {
+                        progress = 90;
+                    }
                     if (jobstatus === 'COMPLETED') {
+
+                        updateProgressBar({
+                            id: `New HealthScribe Job: ${jobName}`,
+                            value: 100,
+                            description: 'Scribe job submitted',
+                            type: 'success',
+                            additionalInfo: `Audio file successfully uploaded and submitted to transcription.`,
+                        });
+                        await sleep(500);
                         navigate('/conversation/' + jobName);
+
                         break;
                     }
                 }
