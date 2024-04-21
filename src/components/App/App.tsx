@@ -30,12 +30,12 @@ const theme: Theme = {
     contexts: {
         header: {
             tokens: {
-                colorBackgroundLayoutMain: '#fafafa ',
+                colorBackgroundLayoutMain: '#FAF7FF ',
             },
         },
         'top-navigation': {
             tokens: {
-                colorBackgroundLayoutMain: '#6941c6 ',
+                colorBackgroundContainerContent: '#6941C6 ',
             },
         },
     },
