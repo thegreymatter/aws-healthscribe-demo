@@ -90,7 +90,7 @@ export default function NewConversation() {
         const loadedMb = Math.round((loaded || 1) / 1024 / 1024);
         const totalMb = Math.round((total || 1) / 1024 / 1024);
         updateProgressBar({
-            id: `New HealthScribe Job: ${jobName}`,
+            id: `Transcribing Audio`,
             value: value,
             description: `Uploaded part ${part}, ${loadedMb}MB / ${totalMb}MB`,
         });
@@ -270,7 +270,6 @@ export default function NewConversation() {
                         }
                     >
                         <SpaceBetween direction="vertical" size="xl">
-
                             {/*  
                               <InputName jobName={jobName} setJobName={setJobName} />
                               <AudioIdentificationType
