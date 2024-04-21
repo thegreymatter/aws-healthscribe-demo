@@ -27,18 +27,23 @@ const NewConversation = lazy(() => import('@/components/NewConversation'));
 
 const theme: Theme = {
     tokens: {
+        
         // Values are applied globally, except for visual contexts
         colorBackgroundLayoutMain: {
             // Specify value for light and dark mode
-            light: 'white',
+            light: 'pink',
             dark: 'blue',
         },
+        colorTextAccent: 'pink',
     },
 };
+
+applyTheme({ theme });
 
 export default function App() {
     const { user } = useAuthContext();
     const { flashbarItems } = useNotificationsContext();
+
     applyTheme({ theme });
 
     const content = (
