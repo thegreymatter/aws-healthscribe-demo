@@ -24,7 +24,7 @@ export function useAuthContext() {
     }
     return context;
 }
-
+/*
 export default function AuthContextProvider({ children }: { children: React.ReactElement }) {
     const { user, signOut } = useAuthenticator((context) => [context.user]);
     const [credentials, setCredentails] = useState<false | ICredentials>(false);
@@ -40,7 +40,39 @@ export default function AuthContextProvider({ children }: { children: React.Reac
                 console.log(credentials);
             } catch {
                 console.log('eeerr');
+                setCredentails(false);
+            }
+        }
+        getAuthUser().catch(console.error);
+        Hub.listen('auth', authListener);
+    }, []);
+
+    const authContextValue = {
+        user: user,
+        credentials: credentials,
+        signOut: signOut,
+    };
+
+    return <AuthContext.Provider value={authContextValue}>{children}</AuthContext.Provider>;
+}
+*/
+
+export default function AuthContextProvider({ children }: { children: React.ReactElement }) {
+    const { user, setUser } =  useState<false | AmplifyUser>(false);
+    const [credentials, setCredentails] = useState<false | ICredentials>(false);
+
+    useEffect(() => {
+        async function authListener(data: { payload?: { event?: string } }) {
+            if (data?.payload?.event) getAuthUser().catch(console.error);
+        }
+        async function getAuthUser() {
+            try {
+                const credentials = await Auth.currentCredentials();
+                setCredentails(credentials);
+                setUser(await Auth.currentAuthenticatedUser());
                 console.log(credentials);
+            } catch {
+                console.log('eeerr');
                 setCredentails(false);
             }
         }
