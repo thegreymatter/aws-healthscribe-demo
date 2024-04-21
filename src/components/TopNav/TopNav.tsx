@@ -94,7 +94,7 @@ export default function TopNav() {
             <TopNavigation
                 identity={{
                     href: '/',
-                    title: 'Healthscribe DEMO',
+                    title: ' Diagnostic Robotics AI Scribe Demo',
                 }}
                 utilities={navUtils}
             />

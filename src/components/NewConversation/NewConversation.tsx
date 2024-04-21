@@ -208,11 +208,10 @@ export default function NewConversation() {
                     const getJob = await getHealthScribeJob({ MedicalScribeJobName: jobName });
                     const jobstatus = getJob?.data?.MedicalScribeJob?.MedicalScribeJobStatus;
                     if (jobstatus === 'COMPLETED') {
-
                         navigate('/conversation/' + jobName);
                         break;
                     }
-                } 
+                }
             } else {
                 updateProgressBar({
                     id: `New HealthScribe Job: ${jobName}`,
