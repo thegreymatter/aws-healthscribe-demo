@@ -191,7 +191,7 @@ export default function NewConversation() {
                     description: 'Scribe submitted',
                     additionalInfo: `Audio file successfully uploaded and submitted to transcription.`,
                 });
-                let progress = 10;
+                let progress = 5;
                 // eslint-disable-next-line no-constant-condition
                 while (true) {
                     await sleep(5000);
@@ -200,12 +200,12 @@ export default function NewConversation() {
                     updateProgressBar({
                         id: `Transcribing Audio`,
                         value: progress,
-                        description: 'Scribe in proggres',
+                        description: 'Scribe in progress',
                         additionalInfo: `Transcribing audio...`,
                     });
                     progress += 3;
-                    if (progress >= 90) {
-                        progress = 90;
+                    if (progress >= 95) {
+                        progress = 95;
                     }
                     if (jobstatus === 'COMPLETED') {
                         updateProgressBar({
