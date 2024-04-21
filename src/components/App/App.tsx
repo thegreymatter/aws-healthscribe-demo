@@ -74,7 +74,6 @@ export default function App() {
             </div>
             <AppLayout
                 disableContentPaddings={true}
-                navigation={<SideNav activeHref="/" />}
                 breadcrumbs={<Breadcrumbs />}
                 toolsHide={true}
                 notifications={<Flashbar items={flashbarItems} />}
