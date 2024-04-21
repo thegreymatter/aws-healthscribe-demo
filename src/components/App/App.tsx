@@ -6,6 +6,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import AppLayout from '@cloudscape-design/components/app-layout';
 import Flashbar from '@cloudscape-design/components/flashbar';
+import { Theme, applyTheme } from '@cloudscape-design/components/theming';
 
 import { Amplify } from 'aws-amplify';
 
@@ -18,7 +19,6 @@ import Welcome from '@/components/Welcome';
 import { useAuthContext } from '@/store/auth';
 import { useNotificationsContext } from '@/store/notifications';
 import { isUserEmailVerified } from '@/utils/Auth/isUserEmailVerified';
-import { Theme, applyTheme } from '@cloudscape-design/components/theming';
 
 Amplify.configure(awsExports);
 
@@ -40,7 +40,6 @@ const theme: Theme = {
         },
     },
 };
-
 
 export default function App() {
     const { user } = useAuthContext();
