@@ -172,7 +172,7 @@ export default function NewConversation() {
             });
         } catch (e) {
             updateProgressBar({
-                id: `New Job: ${jobName}`,
+                id: `Transcribing Audio`,
                 type: 'error',
                 value: 0,
                 description: 'Uploading Audio failed',
@@ -186,9 +186,9 @@ export default function NewConversation() {
             const startJob = await startMedicalScribeJob(jobParams);
             if (startJob?.data?.MedicalScribeJob?.MedicalScribeJobStatus) {
                 updateProgressBar({
-                    id: `New HealthScribe Job: ${jobName}`,
+                    id: `Transcribing Audio`,
                     value: 20,
-                    description: 'Scribe job submitted',
+                    description: 'Scribe submitted',
                     additionalInfo: `Audio file successfully uploaded and submitted to transcription.`,
                 });
                 let progress = 10;
@@ -198,22 +198,22 @@ export default function NewConversation() {
                     const getJob = await getHealthScribeJob({ MedicalScribeJobName: jobName });
                     const jobstatus = getJob?.data?.MedicalScribeJob?.MedicalScribeJobStatus;
                     updateProgressBar({
-                        id: `New HealthScribe Job: ${jobName}`,
+                        id: `Transcribing Audio`,
                         value: progress,
-                        description: 'Scribe job submitted',
+                        description: 'Scribe in proggres',
                         additionalInfo: `Transcribing audio...`,
                     });
-                    progress += 5;
+                    progress += 3;
                     if (progress >= 90) {
                         progress = 90;
                     }
                     if (jobstatus === 'COMPLETED') {
                         updateProgressBar({
-                            id: `New HealthScribe Job: ${jobName}`,
+                            id: `Transcribing Audio`,
                             value: 100,
                             description: 'Scribe job submitted',
                             type: 'success',
-                            additionalInfo: `Audio file successfully uploaded and submitted to transcription.`,
+                            additionalInfo: `Audio file successfully transcribed.`,
                         });
                         await sleep(500);
                         navigate('/conversation/' + jobName);
@@ -223,7 +223,7 @@ export default function NewConversation() {
                 }
             } else {
                 updateProgressBar({
-                    id: `New HealthScribe Job: ${jobName}`,
+                    id: `Transcribing Audio`,
                     type: 'info',
                     value: 100,
                     description: 'Unable to confirm job submission',
@@ -232,7 +232,7 @@ export default function NewConversation() {
             }
         } catch (e) {
             updateProgressBar({
-                id: `New HealthScribe Job: ${jobName}`,
+                id: `Transcribing Audio`,
                 type: 'error',
                 value: 0,
                 description: 'Submitting job to HealthScribe failed',
