@@ -168,9 +168,9 @@ export default function NewConversation() {
 
         // Add initial progress flash message
         updateProgressBar({
-            id: `New HealthScribe Job: ${jobName}`,
+            id: `Transcribing Audio`,
             value: 0,
-            description: 'Upload to S3 in progress...',
+            description: 'Uploading Audio in progress...',
         });
 
         try {
@@ -182,10 +182,10 @@ export default function NewConversation() {
             });
         } catch (e) {
             updateProgressBar({
-                id: `New HealthScribe Job: ${jobName}`,
+                id: `New Job: ${jobName}`,
                 type: 'error',
                 value: 0,
-                description: 'Uploading files to S3 failed',
+                description: 'Uploading Audio failed',
                 additionalInfo: `Error uploading ${filePath!.name}: ${(e as Error).message}`,
             });
             setIsSubmitting(false);
@@ -199,19 +199,17 @@ export default function NewConversation() {
                     id: `New HealthScribe Job: ${jobName}`,
                     type: 'success',
                     value: 100,
-                    description: 'HealthScribe job submitted',
-                    additionalInfo: `Audio file successfully uploaded to S3 and submitted to HealthScribe at ${dayjs
-                        .unix(startJob.data.MedicalScribeJob.StartTime)
-                        .format('MM/DD/YYYY hh:mm A')}. Redirecting to conversation list in 5 seconds.`,
+                    description: 'Scribe job submitted',
+                    additionalInfo: `Audio file successfully uploaded and submitted to transcription.`,
                 });
                 await sleep(500);
-                navigate('/conversations');
+                navigate('/conversation/' + jobName);
             } else {
                 updateProgressBar({
                     id: `New HealthScribe Job: ${jobName}`,
                     type: 'info',
                     value: 100,
-                    description: 'Unable to confirm HealthScribe job submission',
+                    description: 'Unable to confirm job submission',
                     additionalInfo: `Response from HealthScribe: ${JSON.stringify(startJob?.data)}`,
                 });
             }
