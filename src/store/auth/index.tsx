@@ -58,7 +58,7 @@ export default function AuthContextProvider({ children }: { children: React.Reac
 */
 
 export default function AuthContextProvider({ children }: { children: React.ReactElement }) {
-    const { user, setUser } =  useState<false | AmplifyUser>(false);
+    const { user, setUser } = useState<false | AmplifyUser>(false);
     const [credentials, setCredentails] = useState<false | ICredentials>(false);
 
     useEffect(() => {
@@ -83,7 +83,7 @@ export default function AuthContextProvider({ children }: { children: React.Reac
     const authContextValue = {
         user: user,
         credentials: credentials,
-        signOut: signOut,
+        signOut: false,
     };
 
     return <AuthContext.Provider value={authContextValue}>{children}</AuthContext.Provider>;
