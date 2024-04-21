@@ -23,7 +23,7 @@ import dayjs from 'dayjs';
 
 import { useS3 } from '@/hooks/useS3';
 import { useNotificationsContext } from '@/store/notifications';
-import { startMedicalScribeJob } from '@/utils/HealthScribeApi';
+import { getHealthScribeJob, startMedicalScribeJob } from '@/utils/HealthScribeApi';
 import { multipartUpload } from '@/utils/S3Api';
 import sleep from '@/utils/sleep';
 
@@ -202,8 +202,17 @@ export default function NewConversation() {
                     description: 'Scribe job submitted',
                     additionalInfo: `Audio file successfully uploaded and submitted to transcription.`,
                 });
-                await sleep(500);
-                navigate('/conversation/' + jobName);
+                // eslint-disable-next-line no-constant-condition
+                while (true) {
+                    await sleep(5000);
+                    const getJob = await getHealthScribeJob({ MedicalScribeJobName: jobName });
+                    const jobstatus = getJob?.data?.MedicalScribeJob?.MedicalScribeJobStatus;
+                    if (jobstatus === 'COMPLETED') {
+
+                        navigate('/conversation/' + jobName);
+                        break;
+                    }
+                } 
             } else {
                 updateProgressBar({
                     id: `New HealthScribe Job: ${jobName}`,
