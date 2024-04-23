@@ -301,18 +301,16 @@ export default function NewConversation() {
                                             ]}
                                         />
                                     </div>
-                                    {submissionMode === 'liveRecording' ? (
                                         <>
                                             <FormField label="Live Recording"></FormField>
                                             <AudioRecorder setRecordedAudio={setRecordedAudio} />
                                         </>
-                                    ) : (
                                         <FormField label="Select Files">
                                             <AudioDropzone setFilePath={setFilePath} setFormError={setFormError} />
                                             <TokenGroup
                                                 i18nStrings={{
                                                     limitShowFewer: 'Show fewer files',
-                                                    limitShowMore: 'Show more files',
+                                                limitShowMore: 'Show more files',
                                                 }}
                                                 onDismiss={() => {
                                                     setFilePath(undefined);
@@ -321,8 +319,7 @@ export default function NewConversation() {
                                                 alignment="vertical"
                                                 limit={1}
                                             />
-                                        </FormField>
-                                    )}
+                                    </FormField>
                                 </SpaceBetween>
                             </FormField>
                         </SpaceBetween>
