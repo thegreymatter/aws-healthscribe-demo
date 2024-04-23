@@ -84,7 +84,11 @@ export default function AuthContextProvider({ children }: { children: React.Reac
     const authContextValue = {
         user: user,
         credentials: credentials,
-        signOut: false,
+        signOut: () => {
+            setUser(false);
+            setCredentails(false);
+            console.log('signout');
+        },
     };
 
     return <AuthContext.Provider value={authContextValue}>{children}</AuthContext.Provider>;
