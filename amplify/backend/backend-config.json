@@ -13,7 +13,7 @@
                 "signupAttributes": ["EMAIL"],
                 "socialProviders": [],
                 "usernameAttributes": ["EMAIL"],
-                "verificationMechanisms": ["EMAIL"]
+                "verificationMechanisms": []
             },
             "providerPlugin": "awscloudformation",
             "service": "Cognito"

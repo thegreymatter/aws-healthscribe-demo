@@ -5,7 +5,7 @@
         "allowUnauthenticatedIdentities": true,
         "resourceNameTruncated": "awsheaf9c98582",
         "userPoolName": "healthScribeDemoAuthUserPool",
-        "autoVerifiedAttributes": ["email"],
+        "autoVerifiedAttributes": [],
         "mfaConfiguration": "OFF",
         "mfaTypes": ["SMS Text Message"],
         "smsAuthenticationMessage": "Your authentication code is {####}",
@@ -14,12 +14,7 @@
         "emailVerificationMessage": "Your verification code is {####}",
         "defaultPasswordPolicy": false,
         "passwordPolicyMinLength": 8,
-        "passwordPolicyCharacters": [
-            "Requires Lowercase",
-            "Requires Uppercase",
-            "Requires Numbers",
-            "Requires Symbols"
-        ],
+        "passwordPolicyCharacters": [],
         "requiredAttributes": ["email"],
         "aliasAttributes": [],
         "userpoolClientGenerateSecret": false,
