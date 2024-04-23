@@ -16,6 +16,7 @@ import TopNav from '@/components/TopNav';
 import { useAuthContext } from '@/store/auth';
 import { useNotificationsContext } from '@/store/notifications';
 import { isUserEmailVerified } from '@/utils/Auth/isUserEmailVerified';
+
 import Welcome from '../Welcome';
 
 Amplify.configure(awsExports);
