@@ -58,7 +58,7 @@ export default function AuthContextProvider({ children }: { children: React.Reac
 */
 
 export default function AuthContextProvider({ children }: { children: React.ReactElement }) {
-    const { user, setUser } = useState<false | AmplifyUser>(false);
+    const [user, setUser] = useState<false | AmplifyUser>(false);
     const [credentials, setCredentails] = useState<false | ICredentials>(false);
 
     useEffect(() => {
@@ -67,10 +67,11 @@ export default function AuthContextProvider({ children }: { children: React.Reac
         }
         async function getAuthUser() {
             try {
-                const credentials = await Auth.currentCredentials();
-                setCredentails(credentials);
-                setUser(await Auth.currentAuthenticatedUser());
-                console.log(credentials);
+                const ccredentials = await Auth.currentCredentials();
+                const cuser = await Auth.currentAuthenticatedUser();
+                setCredentails(ccredentials);
+                setUser(cuser);
+                console.log(ccredentials);
             } catch {
                 console.log('eeerr');
                 setCredentails(false);
