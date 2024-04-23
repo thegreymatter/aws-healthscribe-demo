@@ -11,8 +11,9 @@ import ContentLayout from '@cloudscape-design/components/content-layout';
 import Header from '@cloudscape-design/components/header';
 import Link from '@cloudscape-design/components/link';
 import TextContent from '@cloudscape-design/components/text-content';
+
 import Auth from '@/components/Auth';
-import  { useAuthContext } from '@/store/auth';
+import { useAuthContext } from '@/store/auth';
 
 function Welcome() {
     const navigate = useNavigate();
