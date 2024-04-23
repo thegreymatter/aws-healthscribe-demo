@@ -23,9 +23,7 @@ const authUiComponents = {
                         paddingTop: '10px',
                         fontStyle: 'italic',
                     }}
-                >
-                    A verification code will be sent to your email address to validate the account.
-                </div>
+                ></div>
             );
         },
     },
