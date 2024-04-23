@@ -2,7 +2,7 @@
     "version": "1",
     "cognitoConfig": {
         "identityPoolName": "healthScribeDemoAuthIdentityPool",
-        "allowUnauthenticatedIdentities": false,
+        "allowUnauthenticatedIdentities": true,
         "resourceNameTruncated": "awsheaf9c98582",
         "userPoolName": "healthScribeDemoAuthUserPool",
         "autoVerifiedAttributes": ["email"],

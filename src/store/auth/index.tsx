@@ -67,10 +67,16 @@ export default function AuthContextProvider({ children }: { children: React.Reac
         }
         async function getAuthUser() {
             const ccredentials = await Auth.currentCredentials();
-            const cuser = await Auth.currentAuthenticatedUser();
-            setCredentails(ccredentials);
-            setUser(cuser);
             console.log(ccredentials);
+            setCredentails(ccredentials);
+            try {
+                const cuser = await Auth.currentAuthenticatedUser();
+                console.log(cuser);
+                setUser(cuser);
+            } catch(e) {
+                console.log(e);
+                setUser(false);
+            }
         }
         getAuthUser().catch(console.error);
         Hub.listen('auth', authListener);
