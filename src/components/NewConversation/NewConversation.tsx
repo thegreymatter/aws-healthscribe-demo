@@ -17,6 +17,8 @@ import SpaceBetween from '@cloudscape-design/components/space-between';
 import Spinner from '@cloudscape-design/components/spinner';
 import StatusIndicator from '@cloudscape-design/components/status-indicator';
 import TokenGroup from '@cloudscape-design/components/token-group';
+import Tabs from "@cloudscape-design/components/tabs";
+
 
 import { Progress } from '@aws-sdk/lib-storage';
 import dayjs from 'dayjs';
@@ -289,23 +291,23 @@ export default function NewConversation() {
                                     </SpaceBetween>
                                 }
                             >
-                                <SpaceBetween direction="vertical" size="xl">
-                                    <div className={styles.submissionModeRadio}>
-                                        <RadioGroup
-                                            ariaLabel="submissionMode"
-                                            onChange={({ detail }) => setSubmissionMode(detail.value)}
-                                            value={submissionMode}
-                                            items={[
-                                                { value: 'liveRecording', label: 'Live Recording' },
-                                                { value: 'uploadRecording', label: 'Upload Recording File' },
-                                            ]}
-                                        />
-                                    </div>
-                                    <>
-                                        <FormField label="Live Recording"></FormField>
-                                        <AudioRecorder setRecordedAudio={setRecordedAudio} />
-                                    </>
-                                    <FormField label="Select Files">
+
+                            <Tabs
+                                tabs={[
+                                    {
+                                        label: 'Live Recording',
+                                        id: 'liverecording',
+                                        content: (
+                                            <>
+                                                <FormField label="Live Recording" />
+                                                <AudioRecorder setRecordedAudio={setRecordedAudio} />
+                                            </>
+                                        ),
+                                    },
+                                    {
+                                        label: 'Upload Recording File',
+                                        id: 'second',
+                                        content: (<FormField label="Select Files">
                                         <AudioDropzone setFilePath={setFilePath} setFormError={setFormError} />
                                         <TokenGroup
                                             i18nStrings={{
@@ -319,9 +321,10 @@ export default function NewConversation() {
                                             alignment="vertical"
                                             limit={1}
                                         />
-                                    </FormField>
-                                </SpaceBetween>
-                            </FormField>
+                                    </FormField>),
+                                    },
+                                ]}
+                            />
                         </SpaceBetween>
                     </Form>
                 </form>
