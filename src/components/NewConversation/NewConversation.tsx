@@ -301,24 +301,24 @@ export default function NewConversation() {
                                             ]}
                                         />
                                     </div>
-                                        <>
-                                            <FormField label="Live Recording"></FormField>
-                                            <AudioRecorder setRecordedAudio={setRecordedAudio} />
-                                        </>
-                                        <FormField label="Select Files">
-                                            <AudioDropzone setFilePath={setFilePath} setFormError={setFormError} />
-                                            <TokenGroup
-                                                i18nStrings={{
-                                                    limitShowFewer: 'Show fewer files',
+                                    <>
+                                        <FormField label="Live Recording"></FormField>
+                                        <AudioRecorder setRecordedAudio={setRecordedAudio} />
+                                    </>
+                                    <FormField label="Select Files">
+                                        <AudioDropzone setFilePath={setFilePath} setFormError={setFormError} />
+                                        <TokenGroup
+                                            i18nStrings={{
+                                                limitShowFewer: 'Show fewer files',
                                                 limitShowMore: 'Show more files',
-                                                }}
-                                                onDismiss={() => {
-                                                    setFilePath(undefined);
-                                                }}
-                                                items={fileToken ? [fileToken] : []}
-                                                alignment="vertical"
-                                                limit={1}
-                                            />
+                                            }}
+                                            onDismiss={() => {
+                                                setFilePath(undefined);
+                                            }}
+                                            items={fileToken ? [fileToken] : []}
+                                            alignment="vertical"
+                                            limit={1}
+                                        />
                                     </FormField>
                                 </SpaceBetween>
                             </FormField>
