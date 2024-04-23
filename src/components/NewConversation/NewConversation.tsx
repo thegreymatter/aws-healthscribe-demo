@@ -16,9 +16,8 @@ import RadioGroup from '@cloudscape-design/components/radio-group';
 import SpaceBetween from '@cloudscape-design/components/space-between';
 import Spinner from '@cloudscape-design/components/spinner';
 import StatusIndicator from '@cloudscape-design/components/status-indicator';
+import Tabs from '@cloudscape-design/components/tabs';
 import TokenGroup from '@cloudscape-design/components/token-group';
-import Tabs from "@cloudscape-design/components/tabs";
-
 
 import { Progress } from '@aws-sdk/lib-storage';
 import dayjs from 'dayjs';
@@ -284,14 +283,6 @@ export default function NewConversation() {
                                 audioDetails={audioDetails}
                                 setAudioDetails={setAudioDetails}
                             /> */}
-                            <FormField
-                                label={
-                                    <SpaceBetween direction="horizontal" size="xs">
-                                        <div>Session Recording Type</div>
-                                    </SpaceBetween>
-                                }
-                            >
-
                             <Tabs
                                 tabs={[
                                     {
@@ -307,21 +298,23 @@ export default function NewConversation() {
                                     {
                                         label: 'Upload Recording File',
                                         id: 'second',
-                                        content: (<FormField label="Select Files">
-                                        <AudioDropzone setFilePath={setFilePath} setFormError={setFormError} />
-                                        <TokenGroup
-                                            i18nStrings={{
-                                                limitShowFewer: 'Show fewer files',
-                                                limitShowMore: 'Show more files',
-                                            }}
-                                            onDismiss={() => {
-                                                setFilePath(undefined);
-                                            }}
-                                            items={fileToken ? [fileToken] : []}
-                                            alignment="vertical"
-                                            limit={1}
-                                        />
-                                    </FormField>),
+                                        content: (
+                                            <FormField label="Select Files">
+                                                <AudioDropzone setFilePath={setFilePath} setFormError={setFormError} />
+                                                <TokenGroup
+                                                    i18nStrings={{
+                                                        limitShowFewer: 'Show fewer files',
+                                                        limitShowMore: 'Show more files',
+                                                    }}
+                                                    onDismiss={() => {
+                                                        setFilePath(undefined);
+                                                    }}
+                                                    items={fileToken ? [fileToken] : []}
+                                                    alignment="vertical"
+                                                    limit={1}
+                                                />
+                                            </FormField>
+                                        ),
                                     },
                                 ]}
                             />
