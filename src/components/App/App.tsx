@@ -11,12 +11,12 @@ import { Theme, applyTheme } from '@cloudscape-design/components/theming';
 import { Amplify } from 'aws-amplify';
 
 import awsExports from '@/aws-exports';
-import Breadcrumbs from '@/components/Breadcrumbs';
 import SuspenseLoader from '@/components/SuspenseLoader';
 import TopNav from '@/components/TopNav';
 import { useAuthContext } from '@/store/auth';
 import { useNotificationsContext } from '@/store/notifications';
 import { isUserEmailVerified } from '@/utils/Auth/isUserEmailVerified';
+import Welcome from '../Welcome';
 
 Amplify.configure(awsExports);
 
@@ -59,7 +59,7 @@ export default function App() {
                 </Routes>
             ) : (
                 <Routes>
-                    <Route path="*" element={<NewConversation />} />
+                    <Route path="*" element={<Welcome />} />
                 </Routes>
             )}
         </Suspense>
