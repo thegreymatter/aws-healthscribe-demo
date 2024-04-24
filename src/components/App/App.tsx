@@ -27,7 +27,11 @@ const Conversation = lazy(() => import('@/components/Conversation'));
 const NewConversation = lazy(() => import('@/components/NewConversation'));
 
 const theme: Theme = {
-    tokens: {},
+    tokens: {
+        colorBorderButtonNormalDefault: '#6941C6',
+        colorTextButtonNormalDefault: '#6941C6',
+        colorTextAccent: '#6941C6',
+    },
     contexts: {
         header: {
             tokens: {
