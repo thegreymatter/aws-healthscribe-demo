@@ -32,6 +32,10 @@ const theme: Theme = {
         header: {
             tokens: {
                 colorBackgroundLayoutMain: '#FAF7FF ',
+                colorTextHeadingDefault: '#1D2939',
+                colorBorderButtonNormalDefault: '#6941C6',
+                colorTextButtonNormalDefault: '#6941C6',
+                colorTextAccent: "#6941C6",
             },
         },
         'top-navigation': {
